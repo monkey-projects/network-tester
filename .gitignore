@@ -1,4 +1,4 @@
-/.cpcache
+.cpcache/
 /.nrepl-port
 dev-resources/
 target/

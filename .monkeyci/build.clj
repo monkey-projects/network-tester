@@ -10,9 +10,11 @@
                                     "target/network-tester.jar"))))
 
 (def image
-  (pk/multi-platform-image
+  (pk/multi-platform-image-job
    {:target-img "fra.ocir.io/frjdhmocn5qi/network-tester:latest"
-    :archs [:arm :amd]}))
+    :archs [:arm :amd]
+    :container-opts
+    {:dependencies ["uberjar"]}}))
 
 [uberjar
  image]
