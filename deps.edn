@@ -1,0 +1,17 @@
+{:deps {aero/aero {:mvn/version "1.1.6"}
+        aleph/aleph {:mvn/version "0.8.2"}
+        com.monkeyprojects/aero-ext {:mvn/version "0.2.0"}
+        com.monkeyprojects/oci-os {:mvn/version "0.4.0"}}
+
+ :aliases
+ {:dev
+  {:extra-paths ["env/dev" "dev-resources"]}
+
+  :uberjar
+  {:extra-deps {com.monkeyprojects/build {:mvn/version "0.2.0"}}
+   :exec-fn monkey.build/uberjar
+   :exec-args {:jar "target/network-tester.jar"
+               :main "monkey.ci.tester.network"}}
+
+  :run
+  {:main-opts ["-m" "monkey.ci.tester.network" "dev-resources/config.edn"]}}}
